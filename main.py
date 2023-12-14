@@ -109,7 +109,7 @@ def day_report(timeseries, complete_cohorts, options):
     """
     Possible answers are used to call function for each option
     6 hours is one cohort, data has 36 hours not incl today. if 6 cohort havent been used,
-    averages are compounded and split into six until we reach 6 hours timeseries. 
+    averages are compounded "and split into six"(funker uten dette) until we reach 6 hours timeseries. 
 
     :param timeseries: all relevant timeseries. list
     :param complete_cohorts: current completed cohorts. int
@@ -126,14 +126,14 @@ def day_report(timeseries, complete_cohorts, options):
                 next_timeserie = next_timeseries(timeseries)
                 average = option_results(next_timeserie, options)
                     
-            day_dict[kohort_lengde[quarter]] = divide_dict(average)
+            day_dict[kohort_lengde[quarter]] = average
             
             complete_cohorts += 1
     else:
         for quarter in range(4):
             next_timeserie = next_timeseries(timeseries)
             average = option_results(next_timeserie, options)
-            day_dict[kohort_lengde[quarter]] = divide_dict(average)
+            day_dict[kohort_lengde[quarter]] = average
     return day_dict, complete_cohorts  
 
 
@@ -168,14 +168,14 @@ def options_loop(lst=[]):
     possible_answers = ['1', '2', '3']
     if lst == possible_answers:
         return list(set(lst))
-    answer = input('Which of these would you like to enable?\n1. Rain\n2. Temperature\n3. Windspeed\nPress a number or "a" for all or "d" when done: ')
+    answer = input('Hvilken av disse vil du aktivere?\n1. Regnmengde\n2. Temperatur\n3. Vindhastighet\nPress et nummer for innstillingen eller "a" for alle, "d" når ferdig: ')
     if answer == 'q':
         exit()
     elif answer == 'a':
         return possible_answers
     elif answer == 'd':
         if lst == []:
-            print('\nCan\'t be done with no options, press "a" for all.')
+            print('\nKan ikke gjøre noe uten innstillinger, press "a" for alle.')
             return options_loop([])
         return list(set(lst))
     elif answer in possible_answers:
@@ -222,7 +222,6 @@ def get_clean_weather_json(coordinates):
             with open(WD, "r") as file:
                 json_coords = json.load(file)['geometry']['coordinates']
                 if json_coords != [coordinates['lon'], coordinates['lat'], coordinates['altitude']]:
-                    print('changed', json_coords, coordinates)
                     make_new_weather_data_file(coordinates)
     else:
         make_new_weather_data_file(coordinates)
