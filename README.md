@@ -1,11 +1,25 @@
-# Weather data CLI
-This project is mainly used as a learning tool for APIs and improving my python skills. Uses [met.no API](https://api.met.no/) for data. [Meteo Elevation API](https://api.open-meteo.com/v1/elevation') for elevation to more accurately get weather data from met.no.
+# WeatherBuddy CLI
+A simple command line interface that asks user for a location, the API's then gather location and weather data to present to the user in a readable format. Written in python, uses [met.no API](https://api.met.no/) for weather data. [Meteo Elevation API](https://api.open-meteo.com/v1/elevation') for elevation to more accurately get information from met.no.
+
+## Why?
+This started as a project to improve my python skills and learn how to use public APIs, more specifically the met.no API. 
+
+# Features
+Get weather info around the world, including:
+* Precipation
+* Wind strength
+* Degrees
 
 ## How to use
 In terminal, with git and python installed:
+### Clone project
 ```
 git clone https://github.com/pat955/weather-data
 cd weather-data
+```
+### Run main.py
+With Python v3.10 installed
+```
 python main.py
 ```
 
@@ -35,3 +49,35 @@ Snitt:   | 0.8 mm | 26.4 °C | 1.8 m/s |
 ...
 ```
 It will show a total of 7 days.
+# Contributing
+Python version: 3.10
+### Clone project
+```bash
+git clone https://github.com/pat955/weather-data
+```
+### Download dependencies
+Install pip and python if you haven't already
+```bash
+pip install -r ./requirements.txt
+```
+### Run Script
+```bash
+python main.py
+```
+
+### Submit a pull request
+
+If you'd like to contribute, please fork the repository and open a pull request to the `main` branch.
+
+# Roadmap
+- [ ] Folder structure
+- [ ] Unit settings
+- [ ] Language settings
+- [ ] Remember settings
+- [ ] Web app?
+- [ ] Documentation
+- [ ] Bug fixes, code clean up
+- [ ] Change db
+- [ ] Add scripts
+- [ ] Change to go?
+
